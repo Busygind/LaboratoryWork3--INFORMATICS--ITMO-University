@@ -1,16 +1,25 @@
 #ISU % 6 = 3
 import re
 
-fin = open('test5.txt', encoding='UTF-8')
-surnames = []
-rus_alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-for string in fin:
-    fios = re.findall(r'[А-ЯЁ][а-яё]* [А-ЯЁ]\.[А-ЯЁ]\.', string)
-    for elem in fios:
-        surnames.extend(elem.split()[::2])
-surnames.sort(key=lambda x: rus_alphabet.index(x[0]))
-for i in range(len(surnames)):
-    print(surnames[i])
+# fin = open('test5.txt', encoding='UTF-8')
+def SurnamesListFromFile(filename):
+    surnames = []
+    rus_alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+    for string in filename:
+        fios = re.findall(r'[А-ЯЁ][а-яё]* [А-ЯЁ]\.[А-ЯЁ]\.', string)
+        for elem in fios:
+            surnames.extend(elem.split()[::2])
+    surnames.sort(key=lambda x: rus_alphabet.index(x[0]))
+    return surnames
+
+
+for i in range(1,6):
+    print('Ответ на тест ' + str(i))
+    fin = open('test' + str(i) + '.txt', encoding='UTF-8')
+    l = SurnamesListFromFile(fin)
+    for j in range(len(l)):
+        print(l[j])
+    print("\n")
 
 # Ответы на тесты, полученные без использования регулярных выражений:
 # 1: Земцов
