@@ -1,12 +1,13 @@
 # ISU = 335103
 # eyes = 3   nose = 3   mouth = 6
+import re
+def CountOfSmiles(filename):
+    mySmile = re.compile(r'8<{P')
+    return len(re.findall(mySmile, filename))
 
-mySmile = '8<{P'
-fin = open('test5.txt')
-cnt = 0
-for string in fin:
-    cnt += string.count(mySmile)
-print(cnt)
+for i in range(1,6):
+    fin = open('test' + str(i) + '.txt').read()
+    print(CountOfSmiles(fin))
 
 # Ответы, полученные без использования программы:
 # 1: 49
