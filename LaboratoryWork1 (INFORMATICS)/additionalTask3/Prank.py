@@ -1,20 +1,20 @@
 #ISU % 4 = 3
 import re
 
-def ListOfMoneyReachers(filename):
+def list_of_money_reachers(filename):
     MY_GROUP = 'P3115'
-    moneyReachers = []
+    money_reachers = []
     for lines in fin:
         if re.fullmatch(r'[А-ЯЁ][а-яё]+ [А-ЯЁ]\.[А-ЯЁ]\. [A-Z]\d+\s', lines):
             surname, initials, group = lines.split()
             if initials[0] != initials[2] or group != MY_GROUP:
-                moneyReachers.append(surname + ' ' + initials + ' ' + group)
-    return moneyReachers
+                money_reachers.append(surname + ' ' + initials + ' ' + group)
+    return money_reachers
 
 for i in range(1,6):
     print('Ответ на тест ' + str(i))
     fin = open('test' + str(i) + '.txt', encoding='UTF-8')
-    l = ListOfMoneyReachers(fin)
+    l = list_of_money_reachers(fin)
     for j in range(len(l)):
         print(l[j])
     print()
