@@ -2,7 +2,7 @@
 import re
 
 # fin = open('test5.txt', encoding='UTF-8')
-def SurnamesListFromFile(filename):
+def surnames_list_from_file(filename):
     surnames = []
     rus_alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
     for string in filename:
@@ -16,7 +16,7 @@ def SurnamesListFromFile(filename):
 for i in range(1,6):
     print('Ответ на тест ' + str(i))
     fin = open('test' + str(i) + '.txt', encoding='UTF-8')
-    l = SurnamesListFromFile(fin)
+    l = surnames_list_from_file(fin)
     for j in range(len(l)):
         print(l[j])
     print("\n")
