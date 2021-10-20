@@ -5,7 +5,7 @@ def list_of_money_reachers(filename):
     MY_GROUP = 'P3115'
     money_reachers = []
     for lines in fin:
-        if re.fullmatch(r'[А-ЯЁ][а-яё]+ [А-ЯЁ]\.[А-ЯЁ]\. [A-Z]\d+\s', lines):
+        if re.fullmatch(r'[А-ЯЁ](?:[а-яё]|-)+ ([А-ЯЁ]\.){2} [A-Z]\d+\s', lines):
             surname, initials, group = lines.split()
             if initials[0] != initials[2] or group != MY_GROUP:
                 money_reachers.append(surname + ' ' + initials + ' ' + group)
@@ -21,9 +21,10 @@ for i in range(1,6):
 
 # Ответы на тесты:
 # Ответ на тест 1
-# Качок Я.Я. P0203
+# Качок Т.Т. P0203
 # Зумеров О.Г. P3115
-# Ял О.Х. P3115
+# Ян О.Н. P3115
+# Рапа-пав Г.В. P3115
 #
 # Ответ на тест 2
 # Петербургов П.Б. P3115
