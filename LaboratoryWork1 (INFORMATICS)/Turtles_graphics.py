@@ -3,7 +3,7 @@ import turtle
 turtle.title("Turtle Drawing")
 t = turtle.Turtle()
 t.shape("turtle")
-t.pensize(8)
+t.pensize(10)
 t.pencolor("black")
 t.speed(100)
 #Рисуем глаза
